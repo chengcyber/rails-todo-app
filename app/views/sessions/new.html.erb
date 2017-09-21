@@ -1,0 +1,21 @@
+ <% flash.each do |name, msg| %>
+   <%= content_tag :div, msg, class: "alert alert-info" %>
+ <% end %>
+ <%= flash[:notice] %>
+ <%= flash[:alert] %>
+
+<h1>Please login</h1>
+
+<%= form_for(:user, url: sessions_path) do |f| %>
+  <div class="field">
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="action">
+    <%= f.submit "Login" %>
+  </div>
+<% end %>
